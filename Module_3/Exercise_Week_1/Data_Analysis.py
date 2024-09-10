@@ -21,3 +21,14 @@ selected_data = data[((data['Year'] >= 2010 & (data['Year'] <= 2015))
                       & (data['Revenue (Millions)'] > data['Revenue (Millions)'].quantile(0.95)))]
 
 print(selected_data)
+
+# Groupby data and sort values
+group_by_data = data.groupby('Director')[['Rating']].mean().sort_values(['Rating'], ascending=True).head()
+print(group_by_data)
+print()
+
+# View missing values
+null_data = data.isnull().sum()
+print(null_data)
+
+# Dealing with missing values - Deleting missing values
